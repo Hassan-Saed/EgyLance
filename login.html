@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Egylance</title>
+    <!-- Render All Elements -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- font Awesome Library -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- main css file -->
+    <link rel="stylesheet" href="css/Egylance.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Open Sans Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="Media/fav.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-image"></div>
+        <div class="auth-form-wrapper">
+            <form class="auth-form" action="" method="POST">
+            <h2>Login</h2>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+            <div class="social-login">
+                <p>Or</p>
+                <button type="button" class="btn-social btn-google"><i class="fab fa-google"></i> Login with Google</button>
+                <button type="button" class="btn-social btn-github"><i class="fab fa-github"></i> Login with GitHub</button>
+            </div>
+            <a href="register.html">Don't have an account? Register here</a>
+            <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </form>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

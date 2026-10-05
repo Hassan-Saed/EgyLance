@@ -1308,3 +1308,317 @@ a {
 }
 
 /* End Animation */
+
+/* Authentication Pages */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+}
+.auth-image {
+    flex: 1;
+    min-width: 300px;
+    background-image: url('../Media/coverpage.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--BackColorS);
+}
+.auth-form-wrapper {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: white;
+}
+.auth-form {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+.auth-form h2 { margin-bottom: 20px; color: var(--MainColor); font-weight: bold; font-size: 32px; }
+.auth-form input { display: block; width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9; transition: 0.3s; }
+.auth-form input:focus { outline: none; border-color: var(--MainColor); }
+.auth-form input[type="submit"] { background-color: var(--MainColor); color: white; border: none; cursor: pointer; font-weight: bold; font-size: 16px; }
+.auth-form input[type="submit"]:hover { background-color: var(--SecondColor); }
+.auth-form a { display: block; margin-top: 15px; color: #666; text-decoration: none; transition: 0.3s; }
+.auth-form a:hover { color: var(--MainColor); }
+.back-home { margin-top: 20px; display: inline-block; color: var(--MainColor); font-weight: bold; text-decoration: none; }
+
+/* Placeholder Pages */
+.page-content { padding-top: 100px; text-align: center; }
+
+/* Social Login */
+.social-login { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+.social-login p { margin-bottom: 5px; color: #777; position: relative; }
+.social-login p::before, .social-login p::after { content: ""; position: absolute; top: 50%; width: 35%; height: 1px; background-color: #ddd; }
+.social-login p::before { left: 0; }
+.social-login p::after { right: 0; }
+.btn-social { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; color: white; transition: 0.3s; text-decoration: none; }
+.btn-google { background-color: #db4437; }
+.btn-google:hover { background-color: #c53929; }
+.btn-github { background-color: #333; }
+.btn-github:hover { background-color: #222; }
+
+/* Form Error Message */
+.error-message { color: red; display: none; text-align: left; margin-top: -10px; margin-bottom: 10px; font-size: 14px; }
+
+/* Contact Form */
+.contact-form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: 0.3s;
+    font-family: inherit;
+}
+.contact-form textarea { min-height: 150px; resize: vertical; }
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus { outline: none; border-color: var(--MainColor); }
+.contact-form input[type="submit"] {
+    background-color: var(--MainColor);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.contact-form input[type="submit"]:hover { background-color: var(--SecondColor); }
+
+/* Footer */
+.egylance-footer {
+    background-color: #191919;
+    color: #b9b9b9;
+    padding: 60px 0 20px;
+}
+.egylance-footer .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 40px;
+}
+.egylance-footer .box h3 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--MainColor);
+    padding-bottom: 10px;
+    width: fit-content;
+}
+.egylance-footer .box p { line-height: 1.9; }
+.egylance-footer .box ul li { padding: 10px 0; border-bottom: 1px solid #333; }
+.egylance-footer .box ul li a { color: #b9b9b9; transition: 0.3s; display: block; }
+.egylance-footer .box ul li a:hover { color: var(--MainColor); padding-left: 8px; }
+.egylance-footer .footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    color: #777;
+}
+.egylance-footer .footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #313131;
+    color: #b9b9b9;
+    border-radius: 50%;
+    margin: 5px 3px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.egylance-footer .footer-social a:hover { background-color: var(--MainColor); color: white; }
+
+/* Responsive Media Queries for New Pages */
+@media (max-width: 767px) {
+    .auth-image {
+        display: none;
+    }
+    .auth-form-wrapper {
+        padding: 20px;
+    }
+    .auth-form h2 {
+        font-size: 28px;
+    }
+    .btn-social {
+        font-size: 14px;
+        padding: 10px;
+    }
+    .social-login p::before, .social-login p::after {
+        width: 25%;
+    }
+    .page-content {
+        padding-top: 50px;
+    }
+    .contact-form {
+        padding: 20px;
+    }
+    .egylance-footer .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sticky header shadow on scroll */
+.header.sticky {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    background-color: white;
+}
+
+/* Highlight the current page link */
+.main-nav a.active-nav {
+    color: var(--MainColor);
+}
+.main-nav a.active-nav::before {
+    width: 100%;
+}
+
+/* Hamburger toggle button for mobile */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    background: none;
+}
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 3px;
+    transition: var(--MainTransition);
+}
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 767px) {
+    .nav-toggle {
+        display: flex;
+    }
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        flex-direction: column;
+        padding: 10px 0;
+    }
+    .main-nav.open {
+        display: flex;
+    }
+    .main-nav li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+    .main-nav li a {
+        display: block;
+        padding: 12px 20px;
+    }
+}
+
+/* Fixed scroll-to-top button, shown after 400px scroll */
+#scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--MainColor);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+}
+#scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+#scroll-to-top:hover {
+    background-color: var(--SecondColor);
+}
+
+/* Skills progress bar — JS reads data-width and sets width on scroll-in */
+.the-progress span {
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+/* Form validation error — toggled visible by JS */
+.error-message.visible {
+    display: block;
+}
+
+/* Footer newsletter form inputs */
+.footer-newsletter-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-family: inherit;
+}
+.footer-newsletter-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--MainColor);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--MainTransition);
+}
+.footer-newsletter-btn:hover {
+    background-color: var(--SecondColor);
+}
+.footer-social-top {
+    margin-top: 15px;
+}

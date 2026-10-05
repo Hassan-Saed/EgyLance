@@ -4,83 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Egylance</title>
-    <!-- Render All Elements -->
+    <title>Egylance - Your Freelancing Platform</title>
+    <meta name="description" content="Egylance bridges Egyptian tech talent with global freelance opportunities in programming, design, marketing and more.">
     <link rel="stylesheet" href="css/normalize.css">
-    <!-- font Awesome Library -->
     <link rel="stylesheet" href="css/all.min.css">
-    <!-- main css file -->
     <link rel="stylesheet" href="css/Egylance.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Google Open Sans Font-->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="Media/fav.jpg" type="image/x-icon">
 </head>
 
 <body>
-    <!-- Start Header -->
     <div class="header" id="header">
         <div class="container">
-            <a href="#" class="logo">Egylance</a>
+            <a href="index.html" class="logo">Egylance</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="main-nav">
-                <li><a href="#article">article</a></li>
-                <li><a href="#gallery">gallery</a></li>
-                <li><a href="#features">features</a></li>
-                <!-- other ==> mega menu -->
-                <li><a href="#">other links</a>
-                    <!-- Start Mega Menu -->
-                    <div class="mega-menu">
+                <li><a href="#articles">Articles</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#">Other Links
+                    <div class="mega-menu"> <!-- mega-menu dropdown -->
                         <div class="image">
-                            <img decoding="async" src="Media/new_image.png" alt="this image for megaMenu">
+                            <img decoding="async" src="Media/new_image.png" alt="Mega menu banner">
                         </div>
                         <ul class="links">
-                            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                            <li><a href="#"><i class="fas fa-briefcase"></i> Freelance Jobs</a></li>
-                            <li><a href="#"><i class="fas fa-lightbulb"></i> Ideas & Projects</a></li>
-                            <li><a href="#"><i class="fas fa-pen-nib"></i> Writing & Articles</a></li>
-                            <li><a href="#"><i class="fas fa-paint-brush"></i> Design & Creativity</a></li>
-                            <li><a href="#"><i class="fas fa-code"></i> Programming & Development</a></li>
-                            <li><a href="#"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="fl.html"><i class="fas fa-briefcase"></i> Freelance Jobs</a></li>
+                            <li><a href="id-projects.html"><i class="fas fa-lightbulb"></i> Ideas &amp; Projects</a></li>
+                            <li><a href="articles.html"><i class="fas fa-pen-nib"></i> Writing &amp; Articles</a></li>
+                            <li><a href="design.html"><i class="fas fa-paint-brush"></i> Design &amp; Creativity</a></li>
+                            <li><a href="programming.html"><i class="fas fa-code"></i> Programming &amp; Development</a></li>
+                            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
                         </ul>
                         <ul class="links">
-                            <li><a href="#"><i class="fas fa-users"></i> Our Team</a></li>
-                            <li><a href="#"><i class="fas fa-graduation-cap"></i> Tutorials & Courses</a></li>
+                            <li><a href="team.html"><i class="fas fa-users"></i> Our Team</a></li>
+                            <li><a href="#"><i class="fas fa-graduation-cap"></i> Tutorials &amp; Courses</a></li>
                             <li><a href="#"><i class="fas fa-bullhorn"></i> Marketing Tips</a></li>
                             <li><a href="#"><i class="fas fa-chart-line"></i> Success Stories</a></li>
                             <li><a href="#"><i class="fas fa-handshake"></i> Partnerships</a></li>
                             <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
-                            <li><a href="#"><i class="fas fa-file-contract"></i> Terms & Policies</a></li>
+                            <li><a href="#"><i class="fas fa-file-contract"></i> Terms &amp; Policies</a></li>
                         </ul>
                     </div>
-                    <!-- End Mega Menu -->
-                </li>
+                </a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
             </ul>
         </div>
     </div>
-    </div>
-    <!-- End Header -->
-    <!-- Start Landing -->
+
     <div class="landing">
         <div class="container">
             <div class="text">
-                <h1>Welcome, to Egylance Website</h1>
-                <p>Egylance is a dynamic platform bridging tech talent with opportunity, offering expert services in
-                    programming, digital marketing, UI/UX design, and more.
-                </p>
+                <h1>Welcome to Egylance</h1>
+                <p>A dynamic platform bridging tech talent with opportunity, offering expert services in programming, digital marketing, UI/UX design, and more.</p>
             </div>
             <div class="image">
-                <img decoding="async" src="Media/coverpage.png" alt="background-image">
+                <img decoding="async" src="Media/coverpage.png" alt="Egylance hero illustration">
             </div>
-            <a href="#article" class="go-down">
+            <a href="#articles" class="go-down">
                 <i class="fas fa-angle-double-down fa-2x"></i>
             </a>
-
         </div>
     </div>
-    <!-- End Landing -->
-    <!-- Start Articles  -->
+
     <div class="articles" id="articles">
         <h2 class="main-title">Articles</h2>
         <div class="container">
@@ -91,7 +84,7 @@
                     <p>Write readable, maintainable, and efficient code that stands the test of time.</p>
                 </div>
                 <div class="info">
-                    <a href="#">Read More</a>
+                    <a href="articles.html">Read More</a>
                     <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
             </div>
@@ -102,7 +95,7 @@
                     <p>Create websites that adapt beautifully to any device or screen size.</p>
                 </div>
                 <div class="info">
-                    <a href="#">Read More</a>
+                    <a href="articles.html">Read More</a>
                     <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
             </div>
@@ -113,7 +106,7 @@
                     <p>Master the core language of the web to build interactive experiences.</p>
                 </div>
                 <div class="info">
-                    <a href="#">Read More</a>
+                    <a href="articles.html">Read More</a>
                     <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
             </div>
@@ -124,7 +117,7 @@
                     <p>Boost your website's visibility and rank higher in search results.</p>
                 </div>
                 <div class="info">
-                    <a href="#">Read More</a>
+                    <a href="articles.html">Read More</a>
                     <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
             </div>
@@ -135,7 +128,7 @@
                     <p>Engage audiences and grow your brand across social platforms.</p>
                 </div>
                 <div class="info">
-                    <a href="#">Read More</a>
+                    <a href="articles.html">Read More</a>
                     <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
             </div>
@@ -146,7 +139,7 @@
                     <p>Build secure, scalable server-side applications and APIs.</p>
                 </div>
                 <div class="info">
-                    <a href="#">Read More</a>
+                    <a href="articles.html">Read More</a>
                     <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
             </div>
@@ -157,7 +150,7 @@
                     <p>Create targeted campaigns that convert subscribers into customers.</p>
                 </div>
                 <div class="info">
-                    <a href="#">Read More</a>
+                    <a href="articles.html">Read More</a>
                     <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
             </div>
@@ -168,87 +161,54 @@
                     <p>Design and develop apps that deliver seamless user experiences.</p>
                 </div>
                 <div class="info">
-                    <a href="#">Read More</a>
+                    <a href="articles.html">Read More</a>
                     <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Articles  -->
-    <!-- Start Gallery -->
+
     <div class="gallery" id="gallery">
         <h2 class="main-title">Gallery</h2>
         <div class="container">
-            <div class="box">
-                <div class="image">
-                    <img src="Media/cod3.jpg" alt="">
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="Media/cd2.jpg" alt="">
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="Media/cod3.jpg" alt="">
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="Media/cod4.jpg" alt="">
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="Media/cod4.jpg" alt="">
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="Media/cod3.jpg" alt="">
-                </div>
-            </div>
+            <div class="box"><div class="image"><img src="Media/cod3.jpg" alt="Gallery image 1"></div></div>
+            <div class="box"><div class="image"><img src="Media/cd2.jpg" alt="Gallery image 2"></div></div>
+            <div class="box"><div class="image"><img src="Media/cod3.jpg" alt="Gallery image 3"></div></div>
+            <div class="box"><div class="image"><img src="Media/cod4.jpg" alt="Gallery image 4"></div></div>
+            <div class="box"><div class="image"><img src="Media/cod4.jpg" alt="Gallery image 5"></div></div>
+            <div class="box"><div class="image"><img src="Media/cod3.jpg" alt="Gallery image 6"></div></div>
         </div>
     </div>
-    <!-- End Gallery -->
-    <!-- Start Features -->
+
     <div class="features" id="features">
         <h2 class="main-title">Features</h2>
         <div class="container">
             <div class="box quality">
-                <div class="image">
-                    <img src="Media/cod4.jpg" alt="">
-                </div>
+                <div class="image"><img src="Media/cod4.jpg" alt="Quality"></div>
                 <h2>Quality</h2>
                 <p>Design and develop apps that deliver seamless user experiences.</p>
                 <a href="#">More</a>
             </div>
             <div class="box time">
-                <div class="image">
-                    <img src="Media/cod3.jpg" alt="">
-                </div>
+                <div class="image"><img src="Media/cod3.jpg" alt="Time"></div>
                 <h2>Time</h2>
                 <p>Create targeted campaigns that convert subscribers into customers.</p>
                 <a href="#">More</a>
             </div>
             <div class="box passion">
-                <div class="image">
-                    <img src="Media/cd2.jpg" alt="">
-                </div>
+                <div class="image"><img src="Media/cd2.jpg" alt="Passion"></div>
                 <h2>Passion</h2>
-                <p>Build secure, scalable server-side applications and APIs. this Feature is very important </p>
+                <p>Build secure, scalable server-side applications and APIs.</p>
                 <a href="#">More</a>
             </div>
         </div>
     </div>
-    <!-- End Features -->
-    <!-- Start Testimonials -->
+
     <div class="testimonials" id="testimonials">
         <h2 class="main-title">Testimonials</h2>
         <div class="container">
             <div class="box">
-                <img src="Media/avatar1.png" alt="">
+                <img src="Media/avatar1.png" alt="Mohamed Karim">
                 <h3>Mohamed Karim</h3>
                 <span class="title">Full Stack Engineer</span>
                 <div class="rate">
@@ -258,16 +218,10 @@
                     <i class="filled fas fa-star"></i>
                     <i class="far fa-star"></i>
                 </div>
-                <p>
-                    Mohamed Karim is a skilled Identify Engineer with expertise in identity and access management
-                    systems. He specializes in designing secure authentication solutions, integrating identity
-                    platforms, and ensuring regulatory compliance. Mohamed excels at troubleshooting access issues and
-                    optimizing user experience, leveraging his knowledge of security protocols and risk management. His
-                    proactive approach safeguards digital assets and supports seamless business operations across
-                    organizations.</p>
+                <p>Mohamed Karim is a skilled engineer with expertise in identity and access management systems, designing secure authentication solutions and ensuring regulatory compliance.</p>
             </div>
             <div class="box">
-                <img src="Media/avatar-02.png" alt="">
+                <img src="Media/avatar-02.png" alt="Mohamed Ali">
                 <h3>Mohamed Ali</h3>
                 <span class="title">Software Developer</span>
                 <div class="rate">
@@ -277,16 +231,10 @@
                     <i class="filled fas fa-star"></i>
                     <i class="far fa-star"></i>
                 </div>
-                <p>
-                    Mohamed Ali is a skilled Identify Engineer with expertise in identity and access management
-                    systems. He specializes in designing secure authentication solutions, integrating identity
-                    platforms, and ensuring regulatory compliance. Mohamed excels at troubleshooting access issues and
-                    optimizing user experience, leveraging his knowledge of security protocols and risk management. His
-                    proactive approach safeguards digital assets and supports seamless business operations across
-                    organizations.</p>
+                <p>Mohamed Ali specializes in integrating identity platforms and optimizing user experience across complex enterprise environments.</p>
             </div>
             <div class="box">
-                <img src="Media/avatar-03.png" alt="">
+                <img src="Media/avatar-03.png" alt="Mohamed Ahmed">
                 <h3>Mohamed Ahmed</h3>
                 <span class="title">Data Engineer</span>
                 <div class="rate">
@@ -296,18 +244,12 @@
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                 </div>
-                <p>
-                    Mohamed Ahmed is an accomplished Identify Engineer specializing in identity and access management
-                    solutions. With expertise in implementing secure authentication systems, he ensures organizational
-                    data protection and compliance. Mohamed excels in integrating identity platforms, troubleshooting
-                    access issues, and optimizing user experience. His skills in security protocols and risk assessment
-                    make him a valuable asset for safeguarding digital environments and supporting business operations
-                </p>
+                <p>Mohamed Ahmed excels in implementing secure authentication systems and ensuring organizational data protection and compliance.</p>
             </div>
             <div class="box">
-                <img src="Media/avatar-04.png" alt="">
+                <img src="Media/avatar-04.png" alt="Ali Ahmed">
                 <h3>Ali Ahmed</h3>
-                <span class="title">Dot NET Devleoper</span>
+                <span class="title">Dot NET Developer</span>
                 <div class="rate">
                     <i class="filled fas fa-star"></i>
                     <i class="filled fas fa-star"></i>
@@ -315,17 +257,10 @@
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                 </div>
-                <p>
-                    Ali Ahmed is a skilled Identify Engineer with expertise in identity and access management
-                    systems. He specializes in designing secure authentication solutions, integrating identity
-                    platforms, and ensuring regulatory compliance. Mohamed excels at troubleshooting access issues and
-                    optimizing user experience, leveraging his knowledge of security protocols and risk management. His
-                    proactive approach safeguards digital assets and supports seamless business operations across
-                    organizations.
-                </p>
+                <p>Ali Ahmed brings strong expertise in .NET development and has a proven track record in building robust enterprise-level applications.</p>
             </div>
             <div class="box">
-                <img src="Media/avatar-05.png" alt="">
+                <img src="Media/avatar-05.png" alt="Jony Tom">
                 <h3>Jony Tom</h3>
                 <span class="title">Full Stack Engineer</span>
                 <div class="rate">
@@ -335,18 +270,11 @@
                     <i class="filled fas fa-star"></i>
                     <i class="far fa-star"></i>
                 </div>
-                <p>
-                    Jony Tom is a skilled Identify Engineer with expertise in identity and access management
-                    systems. He specializes in designing secure authentication solutions, integrating identity
-                    platforms, and ensuring regulatory compliance. Mohamed excels at troubleshooting access issues and
-                    optimizing user experience, leveraging his knowledge of security protocols and risk management. His
-                    proactive approach safeguards digital assets and supports seamless business operations across
-                    organizations.
-                </p>
+                <p>Jony Tom is a passionate full stack engineer who excels at building scalable applications with clean, maintainable architecture.</p>
             </div>
             <div class="box">
-                <img src="Media/avatar-06.png" alt="">
-                <h3>Tom anker</h3>
+                <img src="Media/avatar-06.png" alt="Tom Anker">
+                <h3>Tom Anker</h3>
                 <span class="title">Full Stack Engineer</span>
                 <div class="rate">
                     <i class="filled fas fa-star"></i>
@@ -355,102 +283,58 @@
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                 </div>
-                <p>
-                    Tom anker is a skilled Identify Engineer with expertise in identity and access management
-                    systems. He specializes in designing secure authentication solutions, integrating identity
-                    platforms, and ensuring regulatory compliance. Mohamed excels at troubleshooting access issues and
-                    optimizing user experience, leveraging his knowledge of security protocols and risk management. His
-                    proactive approach safeguards digital assets and supports seamless business operations across
-                    organizations.
-                </p>
+                <p>Tom Anker specializes in designing secure authentication solutions and risk management strategies for digital platforms.</p>
             </div>
         </div>
     </div>
-    <!-- End Testimonials -->
-    <!-- Start Team -->
+
     <div class="team" id="team">
         <h2 class="main-title">Our Team</h2>
         <div class="container">
             <div class="box">
                 <div class="data">
-                    <img src="Media/team1.jpg" alt="image for team member number one">
+                    <img src="Media/team1.jpg" alt="Jonny Tonios">
                     <div class="social">
-                        <a href="#">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-x"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-reddit"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#"><i class="fa-brands fa-x"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-reddit"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="info">
-                    <h3>Jonny tonios</h3>
+                    <h3>Jonny Tonios</h3>
                     <p>Team Lead Dot Net Core</p>
                 </div>
             </div>
             <div class="box">
                 <div class="data">
-                    <img src="Media/team2.jpg" alt="This image for team member number one">
+                    <img src="Media/team2.jpg" alt="John Wike">
                     <div class="social">
-                        <a href="#">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-x"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-reddit"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#"><i class="fa-brands fa-x"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-reddit"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="info">
-                    <h3>john wike</h3>
+                    <h3>John Wike</h3>
                     <p>Team Lead Front-End</p>
                 </div>
             </div>
             <div class="box">
                 <div class="data">
-                    <img src="Media/team3.jpg" alt="This image for team member number one">
+                    <img src="Media/team3.jpg" alt="Mark Jonny">
                     <div class="social">
-                        <a href="#">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-x"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-reddit"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#"><i class="fa-brands fa-x"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-reddit"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="info">
@@ -460,191 +344,193 @@
             </div>
             <div class="box">
                 <div class="data">
-                    <img src="Media/team2.jpg" alt="This image for team member number one">
+                    <img src="Media/team2.jpg" alt="Sara Tom">
                     <div class="social">
-                        <a href="#">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-x"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-reddit"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#"><i class="fa-brands fa-x"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-reddit"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="info">
                     <h3>Sara Tom</h3>
-                    <p>Team Mobile App</p>
+                    <p>Team Lead Mobile App</p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Team -->
-    <!-- Start Services -->
-    <div class="services" id="sevices">
+
+    <div class="services" id="services">
         <h2 class="main-title">Our Services</h2>
         <div class="container">
             <div class="box">
                 <i class="fas fa-user-shield fa-4x"></i>
                 <h3>Security</h3>
-                <div class="info">
-                    <a href="#">Details</a>
-                </div>
+                <div class="info"><a href="#">Details</a></div>
             </div>
             <div class="box">
                 <i class="fas fa-tools fa-4x"></i>
                 <h3>Fixing Issues</h3>
-                <div class="info">
-                    <a href="#">Details</a>
-                </div>
+                <div class="info"><a href="#">Details</a></div>
             </div>
             <div class="box">
                 <i class="fas fa-map-marked-alt fa-4x"></i>
                 <h3>Location</h3>
-                <div class="info">
-                    <a href="#">Details</a>
-                </div>
+                <div class="info"><a href="#">Details</a></div>
             </div>
             <div class="box">
                 <i class="fas fa-laptop-code fa-4x"></i>
                 <h3>Coding</h3>
-                <div class="info">
-                    <a href="#">Details</a>
-                </div>
+                <div class="info"><a href="#">Details</a></div>
             </div>
             <div class="box">
                 <i class="fas fa-palette fa-4x"></i>
-                <h3>Security</h3>
-                <div class="info">
-                    <a href="#">Design</a>
-                </div>
+                <h3>Design</h3>
+                <div class="info"><a href="design.html">Details</a></div>
             </div>
             <div class="box">
                 <i class="fas fa-bullhorn fa-4x"></i>
                 <h3>Marketing</h3>
-                <div class="info">
-                    <a href="#">Details</a>
-                </div>
+                <div class="info"><a href="#">Details</a></div>
             </div>
         </div>
     </div>
-    <!-- End Services -->
-    <!-- Start Skills -->
+
     <div class="our-skills" id="our-skills">
         <h2 class="main-title">Our Skills</h2>
         <div class="container">
-            <img src="Media/skills.png" alt="">
+            <img src="Media/skills.png" alt="Skills illustration">
             <div class="skills">
                 <div class="skill">
                     <h3>Azure <span>85%</span></h3>
                     <div class="the-progress">
-                        <span style="width:85%"></span>
+                        <span data-width="85"></span> <!-- width set via JS animation -->
                     </div>
                 </div>
                 <div class="skill">
                     <h3>Angular <span>75%</span></h3>
                     <div class="the-progress">
-                        <span style="width:75%"></span>
+                        <span data-width="75"></span>
                     </div>
                 </div>
                 <div class="skill">
                     <h3>Node.JS <span>80%</span></h3>
                     <div class="the-progress">
-                        <span style="width:80%"></span>
+                        <span data-width="80"></span>
                     </div>
                 </div>
                 <div class="skill">
                     <h3>Dot Net <span>90%</span></h3>
                     <div class="the-progress">
-                        <span style="width:90%"></span>
+                        <span data-width="90"></span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Skills -->
-    <!-- Start Work Steps -->
+
     <div class="work-steps" id="work-steps">
         <h2 class="main-title">How We Work?</h2>
         <div class="container">
-            <img src="Media/work-steps.png" alt="this image for work steps" class="image">
+            <img src="Media/work-steps.png" alt="Work steps overview" class="image">
             <div class="info">
                 <div class="box">
-                    <img src="Media/work-steps-1.png" alt="Work Steps Image 1">
+                    <img src="Media/work-steps-1.png" alt="Step 1: Business Analysis">
                     <div class="text">
-                        <h3>Buisness Analysis</h3>
-                        <p>Buisness Analysis is the main compose for Buisness Achievements, it is very Hard Work For
-                            Project</p>
+                        <h3>Business Analysis</h3>
+                        <p>Business Analysis is the foundation for achieving goals. We assess your needs thoroughly before any development begins.</p>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="Media/work-steps-2.png" alt="Work Steps Image 2">
+                    <img src="Media/work-steps-2.png" alt="Step 2: Software Requirements">
                     <div class="text">
                         <h3>Software Requirements</h3>
-                        <p> For our customers, please check your hold requirements for your software projects to achieve
-                            more work </p>
+                        <p>We collect and document all software requirements from you to build exactly what your project needs.</p>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="Media/work-steps-3.png" alt="Work Steps Image 3">
+                    <img src="Media/work-steps-3.png" alt="Step 3: Software Deployment">
                     <div class="text">
                         <h3>Software Deployment</h3>
-                        <p> Software Deployment, after we take this checklists we work on the steps , step by step to
-                            make your project on time </p>
+                        <p>After completing the checklist, we deploy step by step to ensure your project is delivered on time.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Work Steps -->
-    <!-- Start Events -->
+
     <div class="events" id="events">
-        <h2 class="main-title">Events now</h2>
+        <h2 class="main-title">Events Now</h2>
         <div class="container">
-            <img src="Media/pexels-iriser-1366957.jpg" alt="this image for events">
+            <img src="Media/pexels-iriser-1366957.jpg" alt="Upcoming tech event">
             <div class="info">
                 <div class="time">
-                    <div class="unit">
-                        <span>20</span>
-                        <span>Days</span>
-                    </div>
-                    <div class="unit">
-                        <span>18</span>
-                        <span>Hours</span>
-                    </div>
-                    <div class="unit">
-                        <span>50</span>
-                        <span>Minutes</span>
-                    </div>
-                    <div class="unit">
-                        <span>60</span>
-                        <span>Seconds</span>
-                    </div>
+                    <div class="unit"><span>00</span><span>Days</span></div>
+                    <div class="unit"><span>00</span><span>Hours</span></div>
+                    <div class="unit"><span>00</span><span>Minutes</span></div>
+                    <div class="unit"><span>00</span><span>Seconds</span></div>
                 </div>
                 <h2 class="title">Tech Applicants</h2>
-                <p class="description">This event has many offers for emps apply for many jobs for free lancers
-                    and many other offers for your future career so do not miss this event check it now
-                </p>
+                <p class="description">This event features many offers for freelancers. Don't miss out on career-boosting opportunities!</p>
             </div>
             <div class="subscribe">
-                <form action="">
-                    <input type="email" placeholder="Enter Your Email">
-                    <input type="submit" value="Subscribe">
+                <form class="footer-newsletter-form">
+                    <input type="email" placeholder="Enter Your Email" class="footer-newsletter-input">
+                    <input type="submit" value="Subscribe" class="footer-newsletter-btn">
                 </form>
             </div>
         </div>
     </div>
-    <!-- End Events -->
+
+    <footer class="egylance-footer">
+        <div class="container">
+            <div class="box">
+                <h3>Egylance</h3>
+                <p>A dynamic platform bridging Egyptian tech talent with global opportunity. Connect, create, and grow.</p>
+                <div class="footer-social footer-social-top">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="X (Twitter)"><i class="fa-brands fa-x"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            <div class="box">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+                    <li><a href="articles.html"><i class="fas fa-angle-right"></i> Articles</a></li>
+                    <li><a href="fl.html"><i class="fas fa-angle-right"></i> Freelance Jobs</a></li>
+                    <li><a href="id-projects.html"><i class="fas fa-angle-right"></i> Ideas &amp; Projects</a></li>
+                    <li><a href="team.html"><i class="fas fa-angle-right"></i> Our Team</a></li>
+                    <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> info@egylance.com</li>
+                    <li><i class="fas fa-phone"></i> +20 100 000 0000</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</li>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>Newsletter</h3>
+                <p>Subscribe to stay updated on the latest freelance opportunities.</p>
+                <form class="footer-newsletter-form">
+                    <input type="email" placeholder="Your email" class="footer-newsletter-input">
+                    <input type="submit" value="Subscribe" class="footer-newsletter-btn">
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Egylance. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <button id="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
