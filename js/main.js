@@ -1,14 +1,8 @@
-/**
- * main.js — EgyLance Frontend JavaScript
- * Handles: countdown timer, form validation, sticky header,
- *          mobile nav toggle, scroll-to-top, active nav link.
- */
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* =============================================
-       1. STICKY HEADER ON SCROLL
-    ============================================= */
+    
     const header = document.getElementById('header');
     if (header) {
         window.addEventListener('scroll', () => {
@@ -16,10 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* =============================================
-       2. MOBILE NAV TOGGLE (hamburger)
-    ============================================= */
-    // Create the toggle button in JS instead of hardcoding it in HTML.
     let navToggle = document.getElementById('nav-toggle');
     const mainNav   = document.querySelector('.main-nav');
     if (!navToggle && mainNav) {
@@ -39,12 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
             navToggle.classList.toggle('active', isOpen);
             navToggle.setAttribute('aria-expanded', String(isOpen));
             if (!isOpen) {
-                // Reset any open mobile mega-menu when the nav closes
+
                 mainNav.querySelectorAll('.mega-open').forEach(el => el.classList.remove('mega-open'));
             }
         });
-        // Close nav when a link is clicked (except the mega-menu parent toggle,
-        // which only expands its submenu on mobile)
+
+
         mainNav.querySelectorAll('a:not(#mega-toggle)').forEach(link => {
             link.addEventListener('click', () => {
                 mainNav.classList.remove('open');
@@ -53,11 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* =============================================
-       2b. MEGA-MENU TOGGLE ON TOUCH DEVICES
-       (hover does not exist on touchscreens, so a tap on
-       "Other Links" must open the submenu instead)
-    ============================================= */
+    
     const megaToggle = document.getElementById('mega-toggle');
     if (megaToggle) {
         const megaItem = megaToggle.closest('.has-mega');
@@ -70,9 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* =============================================
-       3. ACTIVE NAV LINK (highlight current page)
-    ============================================= */
+    
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.main-nav a').forEach(link => {
         const href = link.getAttribute('href');
@@ -81,9 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    /* =============================================
-       4. COUNTDOWN TIMER (Events Section)
-    ============================================= */
+    
     const countDownDate = new Date('Dec 31, 2026 23:59:59').getTime();
     const timeUnits = document.querySelectorAll('.events .info .time .unit span:first-child');
 
@@ -103,9 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-    /* =============================================
-       5. REGISTER FORM — PASSWORD VALIDATION
-    ============================================= */
+    
     const registerForm = document.getElementById('register-form');
     if (registerForm) {
         registerForm.addEventListener('submit', e => {
@@ -122,9 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* =============================================
-       6. SMOOTH SCROLLING (internal anchor links)
-    ============================================= */
+    
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', e => {
             const href = anchor.getAttribute('href');
@@ -137,9 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* =============================================
-       7. SCROLL-TO-TOP BUTTON
-    ============================================= */
+    
     const scrollBtn = document.getElementById('scroll-to-top');
     if (scrollBtn) {
         window.addEventListener('scroll', () => {
@@ -150,18 +126,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* =============================================
-       8. SKILLS PROGRESS BAR ANIMATION
-    ============================================= */
+    
     const skillsSection = document.querySelector('.our-skills');
     if (skillsSection) {
         const bars = skillsSection.querySelectorAll('.the-progress span');
         const animateBar = bar => {
-            // BUG FIX: index.html stores the target in data-width, but the old
-            // code only added a class and never set the width, so bars stayed 0.
+
+
             const target = bar.dataset.width || parseFloat(bar.style.width) || 0;
             bar.style.width = '0';
-            // Force reflow so the transition replays
+
             void bar.offsetWidth;
             requestAnimationFrame(() => { bar.style.width = `${target}%`; });
             bar.classList.add('animated');
@@ -177,9 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(skillsSection);
     }
 
-    /* =============================================
-       9. NEWSLETTER FORM — SUBSCRIBE FEEDBACK
-    ============================================= */
+    
     document.querySelectorAll('.subscribe form, .footer-newsletter-form').forEach(form => {
         form.addEventListener('submit', e => {
             e.preventDefault();
