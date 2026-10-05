@@ -12,6 +12,15 @@
     --MainTransition: 0.3s;
     --PaddingSection: 100px;
     --BackColorS: #ececec;
+    --MainHeight: 77px;
+}
+
+/* Section spacing must shrink on small screens */
+@media (max-width: 767px) {
+    :root {
+        --PaddingSection: 55px;
+        --MainHeight: 50px;
+    }
 }
 
 html {
@@ -20,6 +29,12 @@ html {
 
 body {
     font-family: "Open Sans", sans-serif;
+}
+
+/* Global overflow guard: media never wider than its column */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 ul {
@@ -109,6 +124,32 @@ a {
     transition-delay: 0.5;
 }
 
+@media (max-width: 767px) {
+    .main-title {
+        font-size: 22px;
+        margin-bottom: 45px;
+        padding: 8px 14px;
+        letter-spacing: 0;
+        max-width: 100%;
+        text-align: center;
+        overflow-wrap: break-word;
+    }
+
+    .main-title::before,
+    .main-title::after {
+        width: 11px;
+        height: 11px;
+    }
+
+    .main-title::before {
+        left: -20px;
+    }
+
+    .main-title::after {
+        right: -20px;
+    }
+}
+
 /* End Global Rules */
 /* Start Header */
 .header {
@@ -125,6 +166,7 @@ a {
     align-items: center;
     flex-wrap: wrap;
     position: relative;
+    min-height: var(--MainHeight);
 }
 
 .header .logo {
@@ -137,27 +179,59 @@ a {
     align-items: center;
 }
 
-@media(max-width:767px) {
-    .header .logo {
-        width: 100%;
-        height: 50px;
-    }
-}
-
 .header .main-nav {
     display: flex;
 }
 
-@media(max-width:767px) {
-    .header .main-nav {
-        margin: auto;
-    }
-}
-
-.header .main-nav>li:hover .mega-menu {
+.header .main-nav>li:hover .mega-menu,
+.header .main-nav>li:focus-within .mega-menu {
     opacity: 1;
     z-index: 100;
     top: calc(100% + 1px);
+}
+
+/* BUG FIX: the logo used width:100% + flex-wrap:wrap, which pushed the
+   hamburger button onto its own line (it got centered under the logo).
+   The logo must stay on the same row as the toggle. */
+@media (max-width: 767px) {
+    .header .container {
+        flex-wrap: nowrap;
+        min-height: 50px;
+    }
+
+    .header .logo {
+        flex: 1;
+        justify-content: flex-start;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .header .main-nav {
+        margin: 0;
+    }
+
+    .header .nav-toggle {
+        flex: 0 0 auto;
+        margin-left: 15px;
+    }
+}
+
+/* Tablet: shrink the nav so it stays on one row instead of wrapping
+   the header into two rows and breaking --MainHeight. */
+@media (min-width: 768px) and (max-width: 991px) {
+    .header .main-nav>li>a {
+        padding: 0 15px;
+        font-size: 15px;
+    }
+
+    .header .mega-menu {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .header .mega-menu .links {
+        min-width: 0;
+    }
 }
 
 .header .main-nav>li>a {
@@ -216,11 +290,41 @@ a {
     opacity: 0;
 }
 
+/* BUG FIX: on mobile the mega-menu was absolutely positioned inside the
+   collapsed dropdown, so it was unreachable (hover-only) and, because the
+   dropdown had a background + its own stacking context, the z-index:-1
+   panel rendered *behind* it. Make it part of the normal dropdown flow
+   and reveal it on focus/tap as well as hover. */
 @media (max-width: 767px) {
     .header .mega-menu {
+        position: static;
+        width: auto;
+        opacity: 1;
+        display: none;
+        top: auto;
+        z-index: auto;
         flex-direction: column;
         gap: 0;
         padding: 10px;
+        margin: 0 0 10px;
+        background-color: #fafafa;
+        border: 1px solid #e9e6e6;
+        border-left: 3px solid var(--MainColor);
+        border-bottom: 1px solid #e9e6e6;
+        border-radius: 5px;
+    }
+
+    .header .main-nav>li:hover .mega-menu,
+    .header .main-nav>li:focus-within .mega-menu,
+    .header .main-nav>li.mega-open .mega-menu {
+        display: flex;
+        opacity: 1;
+        top: auto;
+        z-index: auto;
+    }
+
+    .header .mega-menu .links {
+        min-width: 0;
     }
 }
 
@@ -320,20 +424,32 @@ a {
 }
 
 .landing .container {
-    min-height: calc(100vh - 77px);
+    min-height: calc(100vh - var(--MainHeight));
     display: flex;
     align-items: center;
-    padding: 0 0 100px;
+    /* BUG FIX: `padding: 0 0 100px` wiped out the .container side gutters,
+       so hero text/images touched the screen edges on phones. Keep them. */
+    padding: 0 15px 100px;
+}
+
+/* BUG FIX: the hero illustration was locked to width:600px with no max-width,
+   so on tablet widths (992px+) the 600px image squeezed the text column to a
+   few words per line. Let it shrink and stack instead. */
+.landing .image {
+    flex: 0 1 600px;
+    min-width: 0;
 }
 
 .landing .text {
-    flex: 1;
+    flex: 1 1 320px;
+    min-width: 0;
 }
 
 .landing .text h1 {
     font-size: 2.1em;
     margin: 0;
     letter-spacing: -2px;
+    overflow-wrap: break-word;
 }
 
 .landing .text p {
@@ -345,12 +461,12 @@ a {
 }
 
 .landing .image img {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     position: relative;
     -moz-animation: up-and-down 5s linear infinite;
     -webkit-animation: up-and-down 5s linear infinite;
     animation: up-and-down 5s linear infinite;
-    /* max-width: 100%; */
 }
 
 .landing .go-down {
@@ -384,13 +500,28 @@ a {
 }
 
 @media (max-width:767px) {
+    .landing .container {
+        min-height: auto;
+        padding-bottom: 70px;
+    }
+
     .landing .text h1 {
         font-size: 1.6em;
+        letter-spacing: -1px;
     }
 
     .landing .text p {
         font-size: 1em;
+        line-height: 1.7;
         padding-left: 0.8em;
+    }
+
+    .landing .go-down {
+        position: static;
+        display: block;
+        width: fit-content;
+        margin: 20px auto 0;
+        transform: none;
     }
 }
 
@@ -404,7 +535,7 @@ a {
 
 .articles .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
     gap: 40px;
 }
 
@@ -425,6 +556,18 @@ a {
     width: 100%;
     height: 250px;
     max-width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .articles .box img {
+        height: 190px;
+    }
+
+    .articles .box:hover {
+        transform: translateY(-6px);
+    }
 }
 
 .articles .box .content {
@@ -473,7 +616,7 @@ a {
 
 .gallery .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: 40px;
 }
 
@@ -525,7 +668,7 @@ a {
 
 .features .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: 40px;
 }
 
@@ -565,13 +708,17 @@ a {
 
 .features .box img {
     max-width: 100%;
+    display: block;
 }
 
 .features .box h2 {
     position: relative;
     font-size: 40px;
     width: fit-content;
+    max-width: 100%;
     margin: auto;
+    padding: 0 10px;
+    overflow-wrap: break-word;
 }
 
 .features .box h2::after {
@@ -589,6 +736,39 @@ a {
     margin: 25px 0;
     color: #555;
     padding: 25px;
+}
+
+/* BUG FIX: 40px headings, 20px body and 25px buttons overflowed the card on
+   phones. Scale the whole card down under 768px. */
+@media (max-width: 767px) {
+    .features .box .image::after {
+        border-width: 0px 0px 90px 300px;
+    }
+
+    .features .box:hover .image::after {
+        border-width: 90px 300px 90px 0;
+    }
+
+    .features .box h2 {
+        font-size: 24px;
+    }
+
+    .features .box h2::after {
+        bottom: -12px;
+        height: 4px;
+    }
+
+    .features .box p {
+        font-size: 16px;
+        line-height: 1.8;
+        padding: 15px;
+        margin: 20px 0;
+    }
+
+    .features .box a {
+        font-size: 18px;
+        padding: 8px 22px;
+    }
 }
 
 .features .box a {
@@ -677,7 +857,7 @@ a {
 
 .testimonials .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: 50px 40px;
 }
 
@@ -697,8 +877,23 @@ a {
     height: 100px;
     border-radius: 50%;
     border: 10px solid var(--BackColorS);
+}
 
+/* BUG FIX: the avatar hung 15px outside the card (right:-15px), so the last
+   column overflowed the viewport and caused a horizontal scrollbar on mobile.
+   Pull it back inside on small screens. */
+@media (max-width: 767px) {
+    .testimonials .container {
+        gap: 55px 20px;
+    }
 
+    .testimonials .box img {
+        top: -45px;
+        right: 10px;
+        width: 80px;
+        height: 80px;
+        border-width: 8px;
+    }
 }
 
 .testimonials .box .title {
@@ -734,7 +929,7 @@ a {
 
 .team .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
     gap: 40px;
 }
 
@@ -779,8 +974,9 @@ a {
 .team .box .data {
     display: flex;
     align-items: center;
-    padding-top: 60px;
+    padding: 15px 15px 100px;
 }
+
 
 .team .box .data img {
     width: calc(100% - 70px);
@@ -887,7 +1083,7 @@ a {
 
 .services .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: 40px;
 }
 
@@ -972,6 +1168,42 @@ a {
 .services .container .box .info a {
     color: var(--MainColor);
     font-size: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+/* BUG FIX: the "01" block (100px) + skewed flag (60px) ate 140px of the card
+   and the right-aligned link was clipped on narrow cards. Shrink both and
+   reserve room so the link always fits. */
+@media (max-width: 767px) {
+    .services .container {
+        gap: 25px;
+    }
+
+    .services .container .box>h3 {
+        font-size: 20px;
+        margin: 15px 0 25px;
+        padding: 0 12px;
+    }
+
+    .services .container .box .info {
+        padding: 18px 14px;
+    }
+
+    .services .container .box .info::before {
+        width: 66px;
+        font-size: 22px;
+        padding-right: 10px;
+    }
+
+    .services .container .box .info::after {
+        left: 54px;
+        width: 36px;
+    }
+
+    .services .container .box .info a {
+        font-size: 14px;
+    }
 }
 
 /* End Services */
@@ -986,6 +1218,26 @@ a {
 .our-skills .container {
     display: flex;
     align-items: center;
+    gap: 40px;
+}
+
+/* BUG FIX: the illustration was only hidden below 768px, so between 768px and
+   991px the 500px image left the progress bars only ~200px wide. */
+@media (max-width: 991px) {
+    .our-skills .container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .our-skills .container>img {
+        max-width: 420px;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .our-skills .skills {
+        width: 100%;
+    }
 }
 
 @media (max-width:767px) {
@@ -993,10 +1245,18 @@ a {
         display: none;
     }
 
+    .our-skills .skill {
+        margin-bottom: 20px;
+    }
+
+    .our-skills .skill h3 {
+        font-size: 16px;
+    }
 }
 
 .our-skills .skills {
     flex: 1;
+    min-width: 0;
 }
 
 .our-skills .skill h3 {
@@ -1073,26 +1333,6 @@ a {
     transition: calc(var(--MainTransition) + 0.2s);
 }
 
-@media (max-width:991px) {
-    .work-steps .container {
-        flex-direction: column;
-    }
-
-    .work-steps .container .image {
-        margin: 0 0 50px;
-    }
-
-    .work-steps .info .box {
-        width: 100%;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .work-steps .info .box img {
-        margin: 0 0 20px;
-    }
-}
-
 .work-steps .info .box:hover::before {
     width: 100%;
     height: 100%;
@@ -1100,6 +1340,7 @@ a {
 
 .work-steps .info .box img {
     width: 70px;
+    flex: 0 0 70px;
     margin-right: 32px;
 }
 
@@ -1113,6 +1354,46 @@ a {
     line-height: 1.6;
     margin: 10px 0 0;
     font-size: 18px;
+}
+
+/* BUG FIX: this block sat *above* the base `.work-steps .info .box img
+   rule, so `margin-right:32px` re-applied and the stacked icon kept a
+   stray right offset on mobile. Placed after the base rules now. */
+@media (max-width: 991px) {
+    .work-steps .container {
+        flex-direction: column;
+    }
+
+    .work-steps .container .image {
+        margin: 0 0 50px;
+        max-width: 420px;
+    }
+
+    .work-steps .info {
+        width: 100%;
+    }
+
+    .work-steps .info .box {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .work-steps .info .box img {
+        margin: 0 0 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .work-steps .info .box p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .work-steps .info .box h3 {
+        font-size: 18px;
+    }
 }
 
 /* End work-steps */
@@ -1142,6 +1423,7 @@ a {
     border-radius: 6px;
     text-align: center;
     width: 80px;
+    flex: 0 1 80px;
     transition: var(--MainTransition);
 }
 .events .info .time span{
@@ -1171,6 +1453,44 @@ a {
         max-width: 400px;
     }
 }
+
+/* BUG FIX: 4 countdown units at a fixed 80px + gaps = ~365px, which
+   overflowed any phone. Let them wrap/shrink and scale the digits down. */
+@media (max-width: 767px) {
+    .events .info .time {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .events .info .time .unit {
+        width: 68px;
+        flex: 0 1 68px;
+    }
+
+    .events .info .time span:first-child {
+        font-size: 26px;
+        padding: 10px 4px;
+    }
+
+    .events .info .time span:last-child {
+        padding: 6px 4px;
+        font-size: 12px;
+    }
+
+    .events .title {
+        font-size: 22px;
+        margin-top: 30px;
+    }
+
+    .events .description {
+        font-size: 16px;
+    }
+
+    .events .subscribe form input[type="email"] {
+        width: 100%;
+    }
+}
+
 .events .info .time .unit:hover,
 .events .info .time .unit:hover span:last-child{
     border-color: var(--MainColor);
@@ -1318,16 +1638,17 @@ a {
 }
 .auth-image {
     flex: 1;
-    min-width: 300px;
+    min-width: 280px;
     background-image: url('../Media/coverpage.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     background-color: var(--BackColorS);
 }
+
 .auth-form-wrapper {
     flex: 1;
-    min-width: 300px;
+    min-width: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1527,7 +1848,11 @@ a {
     .nav-toggle {
         display: flex;
     }
-    .main-nav {
+    /* BUG FIX: the bare `.main-nav` selector loses to the desktop
+       `.header .main-nav { display: flex }` (0,2,0 > 0,1,0), so the mobile
+       `display: none` never applied and the menu was always visible.
+       Use the same compound selector on mobile. */
+    .header .main-nav {
         display: none;
         position: absolute;
         top: 100%;
@@ -1539,7 +1864,7 @@ a {
         flex-direction: column;
         padding: 10px 0;
     }
-    .main-nav.open {
+    .header .main-nav.open {
         display: flex;
     }
     .main-nav li {
@@ -1547,9 +1872,19 @@ a {
         text-align: center;
         border-bottom: 1px solid #eee;
     }
-    .main-nav li a {
+    /* BUG FIX: the desktop anchor rule sets a fixed height (35px) +
+       overflow:hidden, which clipped dropdown link text. Reset both here
+       (selector must beat `.header .main-nav>li>a`). */
+    .header .main-nav>li>a {
         display: block;
+        height: auto;
+        min-height: 44px;
         padding: 12px 20px;
+        overflow: visible;
+        font-size: 15px;
+    }
+    .header .main-nav>li>a::before {
+        display: none;
     }
 }
 
@@ -1621,4 +1956,8 @@ a {
 }
 .footer-social-top {
     margin-top: 15px;
+}
+
+.circle-img {
+    border-radius: 50%;
 }

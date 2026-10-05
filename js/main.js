@@ -19,19 +19,54 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =============================================
        2. MOBILE NAV TOGGLE (hamburger)
     ============================================= */
-    const navToggle = document.getElementById('nav-toggle');
+    // Create the toggle button in JS instead of hardcoding it in HTML.
+    let navToggle = document.getElementById('nav-toggle');
     const mainNav   = document.querySelector('.main-nav');
+    if (!navToggle && mainNav) {
+        navToggle = document.createElement('button');
+        navToggle.className = 'nav-toggle';
+        navToggle.id = 'nav-toggle';
+        navToggle.setAttribute('aria-label', 'Toggle navigation');
+        navToggle.setAttribute('aria-expanded', 'false');
+        for (let i = 0; i < 3; i++) {
+            navToggle.appendChild(document.createElement('span'));
+        }
+        mainNav.parentNode.insertBefore(navToggle, mainNav);
+    }
     if (navToggle && mainNav) {
         navToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('open');
-            navToggle.classList.toggle('active');
+            const isOpen = mainNav.classList.toggle('open');
+            navToggle.classList.toggle('active', isOpen);
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+            if (!isOpen) {
+                // Reset any open mobile mega-menu when the nav closes
+                mainNav.querySelectorAll('.mega-open').forEach(el => el.classList.remove('mega-open'));
+            }
         });
-        // Close nav when a link is clicked
-        mainNav.querySelectorAll('a').forEach(link => {
+        // Close nav when a link is clicked (except the mega-menu parent toggle,
+        // which only expands its submenu on mobile)
+        mainNav.querySelectorAll('a:not(#mega-toggle)').forEach(link => {
             link.addEventListener('click', () => {
                 mainNav.classList.remove('open');
                 navToggle.classList.remove('active');
             });
+        });
+    }
+
+    /* =============================================
+       2b. MEGA-MENU TOGGLE ON TOUCH DEVICES
+       (hover does not exist on touchscreens, so a tap on
+       "Other Links" must open the submenu instead)
+    ============================================= */
+    const megaToggle = document.getElementById('mega-toggle');
+    if (megaToggle) {
+        const megaItem = megaToggle.closest('.has-mega');
+        megaToggle.addEventListener('click', e => {
+            if (window.innerWidth <= 767 && megaItem) {
+                e.preventDefault();
+                const isOpen = megaItem.classList.toggle('mega-open');
+                megaToggle.setAttribute('aria-expanded', String(isOpen));
+            }
         });
     }
 
@@ -121,10 +156,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const skillsSection = document.querySelector('.our-skills');
     if (skillsSection) {
         const bars = skillsSection.querySelectorAll('.the-progress span');
+        const animateBar = bar => {
+            // BUG FIX: index.html stores the target in data-width, but the old
+            // code only added a class and never set the width, so bars stayed 0.
+            const target = bar.dataset.width || parseFloat(bar.style.width) || 0;
+            bar.style.width = '0';
+            // Force reflow so the transition replays
+            void bar.offsetWidth;
+            requestAnimationFrame(() => { bar.style.width = `${target}%`; });
+            bar.classList.add('animated');
+        };
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    bars.forEach(bar => bar.classList.add('animated'));
+                    bars.forEach(animateBar);
                     observer.unobserve(entry.target);
                 }
             });
