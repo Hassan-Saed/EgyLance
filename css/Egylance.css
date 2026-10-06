@@ -1214,7 +1214,7 @@ a {
     }
 
     .our-skills .container>img {
-        max-width: 420px;
+        max-width: min(420px, 100%);
         width: 100%;
         margin-bottom: 40px;
     }
@@ -1348,7 +1348,7 @@ a {
 
     .work-steps .container .image {
         margin: 0 0 50px;
-        max-width: 420px;
+        max-width: min(420px, 100%);
     }
 
     .work-steps .info {
@@ -1423,7 +1423,7 @@ a {
     transition: var(--MainTransition);
 }
 .events img {
-    max-width: 450px;
+    max-width: min(450px, 100%);
 }
 @media (max-width:991px) {
     .events .container {
@@ -1432,7 +1432,7 @@ a {
 
     .events img {
         margin: 0 0 30px;
-        max-width: 400px;
+        max-width: min(400px, 100%);
     }
 }
 
@@ -1490,7 +1490,7 @@ a {
 }
 .events .info {
     flex: 1;
-
+    min-width: 0;
 }
 
 .events .subscribe {
